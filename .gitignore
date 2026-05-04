@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.env*
+*.heapsnapshot
+safedb.config.json
+.safedb.json
+.mcp.json

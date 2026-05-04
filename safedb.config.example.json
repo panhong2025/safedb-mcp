@@ -1,0 +1,34 @@
+{
+  "connections": {
+    "dev": {
+      "type": "postgresql",
+      "url": "${DEV_DATABASE_URL}",
+      "mode": "unrestricted"
+    },
+    "staging": {
+      "type": "postgresql",
+      "url": "${STAGING_DATABASE_URL}",
+      "mode": "restricted"
+    },
+    "prod": {
+      "type": "postgresql",
+      "url": "${PROD_DATABASE_URL}",
+      "mode": "readonly",
+      "ssl": true,
+      "timeout": 15000,
+      "max_rows": 5000
+    }
+  },
+  "default_connection": "dev",
+  "defaults": {
+    "page_size": 50,
+    "query_timeout": 30000,
+    "max_rows": 10000,
+    "truncate_at": 500
+  },
+  "pro": {
+    "license_key": "${SAFEDB_LICENSE_KEY}",
+    "pii_masking": true,
+    "audit_log": true
+  }
+}

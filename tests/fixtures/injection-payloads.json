@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Datadog CVE: COMMIT + DROP SCHEMA",
+    "sql": "SELECT 1; COMMIT; DROP SCHEMA public CASCADE;",
+    "should_block": true
+  },
+  {
+    "name": "Multi-statement INSERT",
+    "sql": "SELECT 1; INSERT INTO users(name) VALUES('hacked')",
+    "should_block": true
+  },
+  {
+    "name": "COPY TO file exfiltration",
+    "sql": "COPY users TO '/tmp/dump.csv'",
+    "should_block": true
+  },
+  {
+    "name": "SELECT INTO OUTFILE",
+    "sql": "SELECT * FROM users INTO OUTFILE '/tmp/data.txt'",
+    "should_block": true
+  },
+  {
+    "name": "pg_read_file access",
+    "sql": "SELECT pg_read_file('/etc/passwd')",
+    "should_block": true
+  },
+  {
+    "name": "lo_export binary export",
+    "sql": "SELECT lo_export(1234, '/tmp/shell.sh')",
+    "should_block": true
+  },
+  {
+    "name": "DROP TABLE in readonly",
+    "sql": "DROP TABLE users",
+    "should_block": true
+  },
+  {
+    "name": "DELETE in readonly",
+    "sql": "DELETE FROM users WHERE id = 1",
+    "should_block": true
+  },
+  {
+    "name": "UPDATE in readonly",
+    "sql": "UPDATE users SET name = 'hacked' WHERE id = 1",
+    "should_block": true
+  },
+  {
+    "name": "ALTER TABLE in readonly",
+    "sql": "ALTER TABLE users ADD COLUMN hacked boolean",
+    "should_block": true
+  },
+  {
+    "name": "TRUNCATE in readonly",
+    "sql": "TRUNCATE TABLE users",
+    "should_block": true
+  },
+  {
+    "name": "Comment-based (safe — DROP is inside a SQL comment, harmless)",
+    "sql": "SELECT 1; -- '); DROP TABLE users; --",
+    "should_block": false
+  },
+  {
+    "name": "pg_sleep DoS",
+    "sql": "SELECT pg_sleep(999)",
+    "should_block": true
+  },
+  {
+    "name": "dblink remote access",
+    "sql": "SELECT dblink('host=evil.com', 'SELECT 1')",
+    "should_block": true
+  },
+  {
+    "name": "Legitimate SELECT (should pass)",
+    "sql": "SELECT id, name FROM users WHERE id = 1",
+    "should_block": false
+  },
+  {
+    "name": "SELECT with JOIN (should pass)",
+    "sql": "SELECT u.name, o.total FROM users u JOIN orders o ON u.id = o.user_id",
+    "should_block": false
+  },
+  {
+    "name": "SELECT with subquery (should pass)",
+    "sql": "SELECT * FROM users WHERE id IN (SELECT user_id FROM orders WHERE total > 100)",
+    "should_block": false
+  },
+  {
+    "name": "SELECT with string containing semicolon (should pass)",
+    "sql": "SELECT * FROM users WHERE bio = 'hello; world'",
+    "should_block": false
+  }
+]
