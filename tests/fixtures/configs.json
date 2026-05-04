@@ -1,0 +1,85 @@
+{
+  "valid_single": {
+    "connections": {
+      "default": {
+        "type": "postgresql",
+        "url": "postgresql://user:pass@localhost:5432/testdb",
+        "mode": "readonly"
+      }
+    }
+  },
+  "valid_multi": {
+    "connections": {
+      "dev": {
+        "type": "postgresql",
+        "url": "postgresql://dev:dev@localhost:5432/devdb",
+        "mode": "unrestricted"
+      },
+      "prod": {
+        "type": "postgresql",
+        "url": "postgresql://prod:prod@localhost:5432/proddb",
+        "mode": "readonly",
+        "ssl": true
+      }
+    },
+    "default_connection": "dev",
+    "defaults": {
+      "page_size": 100,
+      "query_timeout": 15000,
+      "max_rows": 5000,
+      "truncate_at": 300
+    }
+  },
+  "valid_with_pro": {
+    "connections": {
+      "default": {
+        "type": "postgresql",
+        "url": "postgresql://user:pass@localhost:5432/testdb"
+      }
+    },
+    "pro": {
+      "license_key": "some-key",
+      "audit_log": true
+    }
+  },
+  "valid_with_env_vars": {
+    "connections": {
+      "default": {
+        "type": "postgresql",
+        "url": "${TEST_DATABASE_URL}",
+        "mode": "readonly"
+      }
+    }
+  },
+  "invalid_no_connections": {
+    "connections": {}
+  },
+  "invalid_missing_url": {
+    "connections": {
+      "default": {
+        "type": "postgresql",
+        "mode": "readonly"
+      }
+    }
+  },
+  "invalid_bad_mode": {
+    "connections": {
+      "default": {
+        "type": "postgresql",
+        "url": "postgresql://user:pass@localhost:5432/testdb",
+        "mode": "superadmin"
+      }
+    }
+  },
+  "invalid_page_size_too_small": {
+    "connections": {
+      "default": {
+        "type": "postgresql",
+        "url": "postgresql://user:pass@localhost:5432/testdb"
+      }
+    },
+    "defaults": {
+      "page_size": 1
+    }
+  }
+}

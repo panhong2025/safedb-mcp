@@ -48,7 +48,7 @@ export class ProRequiredError extends SafeDBError {
     super(
       `${feature} requires SafeDB Pro ($19/mo).`,
       "PRO_REQUIRED",
-      "Visit https://safedb.dev/pro or run `safedb activate-trial` for a 7-day free trial."
+      "Buy SafeDB Pro at https://panhong2025.gumroad.com/l/safedb-pro — license key delivered instantly via email."
     );
     this.name = "ProRequiredError";
   }

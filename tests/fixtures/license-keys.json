@@ -1,0 +1,36 @@
+{
+  "valid_pro": {
+    "key": "eyJlbWFpbCI6InRlc3RAZXhhbXBsZS5jb20iLCJwbGFuIjoicHJvIiwiZmVhdHVyZXMiOlsiZXhwbGFpbiIsInN1Z2dlc3RfaW5kZXhlcyIsInF1ZXJ5X2xvZyJdLCJleHBpcmVzX2F0IjoiMjAyNy0xMi0zMVQyMzo1OTo1OS4wMDBaIn0=",
+    "email": "test@example.com",
+    "plan": "pro",
+    "expires_at": "2027-12-31T23:59:59.000Z"
+  },
+  "valid_team": {
+    "key": "eyJlbWFpbCI6InRlYW1AZXhhbXBsZS5jb20iLCJwbGFuIjoidGVhbSIsImZlYXR1cmVzIjpbImV4cGxhaW4iLCJzdWdnZXN0X2luZGV4ZXMiLCJxdWVyeV9sb2ciLCJwaWlfbWFza2luZyJdLCJleHBpcmVzX2F0IjoiMjAyNy0wNi0wMVQwMDowMDowMC4wMDBaIn0=",
+    "email": "team@example.com",
+    "plan": "team",
+    "expires_at": "2027-06-01T00:00:00.000Z"
+  },
+  "expired": {
+    "key": "eyJlbWFpbCI6ImV4cGlyZWRAZXhhbXBsZS5jb20iLCJwbGFuIjoicHJvIiwiZmVhdHVyZXMiOlsiZXhwbGFpbiJdLCJleHBpcmVzX2F0IjoiMjAyNC0wMS0wMVQwMDowMDowMC4wMDBaIn0=",
+    "email": "expired@example.com",
+    "plan": "pro",
+    "expires_at": "2024-01-01T00:00:00.000Z"
+  },
+  "missing_email": {
+    "key_decoded": { "plan": "pro", "features": [], "expires_at": "2027-12-31T23:59:59.000Z" },
+    "description": "Missing required email field"
+  },
+  "missing_plan": {
+    "key_decoded": { "email": "test@example.com", "features": [], "expires_at": "2027-12-31T23:59:59.000Z" },
+    "description": "Missing required plan field"
+  },
+  "invalid_base64": {
+    "key": "not-valid-base64-!!!",
+    "description": "Invalid base64 encoding"
+  },
+  "invalid_json": {
+    "key": "dGhpcyBpcyBub3QganNvbg==",
+    "description": "Valid base64 but not JSON (decodes to 'this is not json')"
+  }
+}

@@ -55,7 +55,7 @@ export function createServer() {
 
   if (licenseManager.isPro()) logger.info("Pro license active", licenseManager.getInfo());
 
-  const server = new McpServer({ name: "safedb-mcp", version: "1.0.0" });
+  const server = new McpServer({ name: "safedb-mcp", version: "1.1.0" });
 
   // ─── Tool 1: list_connections ───
   server.tool(

@@ -16,7 +16,7 @@ interface LicenseData {
  * Acceptable for MVP because:
  *   1. Pro features (EXPLAIN, pg_stat_statements) only add convenience, not core value
  *   2. Users who forge a key are unlikely to have paid anyway
- *   3. Will add Ed25519 signature verification + server-side validation in v1.1
+ *   3. Will add Ed25519 signature verification + server-side validation in v1.2
  *      before scaling beyond early adopters
  */
 export class LicenseManager {

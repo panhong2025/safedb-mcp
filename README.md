@@ -320,6 +320,8 @@ SafeDB uses a **4-layer defense** system:
 
 ## Pro ($19/month)
 
+**[Buy SafeDB Pro](https://panhong2025.gumroad.com/l/safedb-pro)** — Get your license key instantly via email.
+
 - EXPLAIN query analysis with performance suggestions
 - Slow query detection via pg_stat_statements
 - Index recommendations
@@ -387,6 +389,13 @@ Enable SSL and allow self-signed certificates in your connection config:
 1. Validate your config file is valid JSON (use `jsonlint` or your editor)
 2. Restart your AI client (most clients don't hot-reload MCP configs)
 3. VS Code users: the root key must be `servers`, not `mcpServers`
+
+## Community
+
+- [GitHub Discussions](https://github.com/panhong2025/safedb-mcp/discussions) — Questions, ideas, and feedback
+- [Bug Reports](https://github.com/panhong2025/safedb-mcp/issues) — Report issues
+- [Contributing Guide](./CONTRIBUTING.md) — How to contribute
+- [Security Policy](./SECURITY.md) — Report vulnerabilities privately
 
 ## License
 

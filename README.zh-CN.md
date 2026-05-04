@@ -320,6 +320,8 @@ SafeDB 采用 **4 层防御**体系：
 
 ## Pro 版（$19/月）
 
+**[购买 SafeDB Pro](https://panhong2025.gumroad.com/l/safedb-pro)** — 付款后自动发送 license key 到邮箱。
+
 - EXPLAIN 查询分析 + 性能优化建议
 - 基于 pg_stat_statements 的慢查询检测
 - 索引推荐
@@ -387,6 +389,13 @@ Error: self-signed certificate / SSL connection required
 1. 确认配置文件路径和 JSON 格式正确（可用 `jsonlint` 校验）
 2. 重启 AI 客户端（大多数客户端不会热加载 MCP 配置）
 3. VS Code 用户注意：根键是 `servers`，不是 `mcpServers`
+
+## 社区
+
+- [GitHub Discussions](https://github.com/panhong2025/safedb-mcp/discussions) — 提问、建议、反馈
+- [Bug 报告](https://github.com/panhong2025/safedb-mcp/issues) — 提交问题
+- [贡献指南](./CONTRIBUTING.md) — 参与开发
+- [安全策略](./SECURITY.md) — 私下报告安全漏洞
 
 ## 许可证
 
